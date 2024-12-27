@@ -1,14 +1,15 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import avaImage from './img/ava.jpg';
-import { Container } from 'react-bootstrap';
+import React from 'react';
+import { Header } from '../header/header';
+import { HeroSection } from '../heroSection/HeroSection';
+import Benefits from '../benefits/benefits';
 
-function BasicExample() {
+const Main = () => {
   return (
-    <div className="header-container">
-      <h1>ffh</h1>
+    <div className="main">
+      <HeroSection />
+      <Benefits />
     </div>
   );
-}
+};
 
-export default BasicExample;
+export default Main;

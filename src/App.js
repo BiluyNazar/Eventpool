@@ -1,32 +1,33 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './App.css';
-import Benefits from './home/benefits/benefits';
-import { Header } from './home/header/header';
-import { HeroSection } from './home/heroSection/HeroSection';
+import { Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import Main from './home/main/main';
 import LoginPage from './home/LoginForm/LoginPage';
 import RegisterPage from './home/RegisterForm/RegisterPage';
+import CreateEventPage from './home/CreateEventPage';
+import PrivateRoute from './components/PrivateRoute';
+import { Header } from './home/header/header';
+import './App.css';
 
 function App() {
   return (
-    <Router>
-      <div>
+    <AuthProvider>
+      <div className="App">
         <Header />
         <Routes>
-          <Route path="/" element={
-            <>
-              <HeroSection />
-              <Benefits />
-            </>
-          } />
+          <Route path="/" element={<Main />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/events" element={<div>Сторінка подій</div>} />
-          <Route path="/help" element={<div>Сторінка довідки</div>} />
-          <Route path="/support" element={<div>Сторінка допомоги</div>} />
+          <Route 
+            path="/create-event" 
+            element={
+              <PrivateRoute>
+                <CreateEventPage />
+              </PrivateRoute>
+            } 
+          />
         </Routes>
       </div>
-    </Router>
+    </AuthProvider>
   );
 }
 

@@ -1,59 +1,52 @@
-import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
 import Logo from "./img/logo.png";
-import Image from "react-bootstrap/Image";
-import "./header.css";
+import './header.css'
+import Image from 'react-bootstrap/Image';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const navigate = useNavigate();
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
 
-  const handleLogout = () => {
-    setCurrentUser(null);
-  };
-
-  return (
-    <div className="header-container">
-      <Container>
-        <Row className="align-items-center">
-          <Col>
-            <Link to="/" className="d-flex align-items-center text-decoration-none">
-              <Image className="logo me-3" src={Logo} roundedCircle />
-              <span className="logo-title bold">Event pool</span>
-            </Link>
-          </Col>
-          <Col xs={6}>
-            <div className="navigations-container d-flex justify-content-center">
-              <Link to="/">ДОДОМУ</Link>
-              <Link to="/events">ПОДІЯ</Link>
-              <Link to="/help">ДОВІДКА</Link>
-              <Link to="/support">ДОПОМОГА</Link>
-            </div>
-          </Col>
-          <Col>
-            <div className="sign-in-btn-container d-flex justify-content-end">
-              {currentUser ? (
-                <>
-                  <span className="welcome-message">Привіт, {currentUser.name}!</span>
-                  <button className="btn-grad" onClick={handleLogout}>
-                    Вийти
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link to="/register" className="btn-grad text-decoration-none">
-                    Зареєструватися
-                  </Link>
-                  <Link to="/login" className="btn-grad text-decoration-none">
-                    Увійти
-                  </Link>
-                </>
-              )}
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  );
+    return (
+        <div className="header-container">
+            <Container>
+                <Row className="align-items-center">
+                    <Col>
+                        <div onClick={() => navigate('/')} className="logo-container d-flex align-items-center">
+                            <Image className="logo me-3" src={Logo} />
+                            <div className="logo-title-container">
+                                <span className="logo-title bold">Event pool</span>
+                                <div className="logo-subtitle">твоя ідеальна платформа</div>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col xs={6}>
+                        <div className="navigations-container d-flex justify-content-center">
+                            <a href="">ДОДОМУ</a>
+                            <a href="">ПОДІЯ</a>
+                            <a href="">ДОВІДКА</a>
+                            <a href="">ДОПОМОГА</a>
+                        </div>
+                    </Col>
+                    <Col>
+                        <div className="sign-in-btn-container d-flex justify-content-between">
+                            {user ? (
+                                <div className="sign-in-btn-container d-flex justify-content-between">
+                                    <button onClick={() => navigate('/create-event')} className="btn-grad">МОЯ ПОДІЯ</button>
+                                    <button onClick={logout} className="btn-grad">ВИЙТИ</button>
+                                </div>
+                            ) : (
+                                <div className="sign-in-btn-container d-flex justify-content-between">
+                                    <button onClick={() => navigate('/register')} className="btn-grad">Зареєструватися</button>
+                                    <button onClick={() => navigate('/login')} className="btn-grad">Увійти</button>
+                                </div>
+                            )}
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+    );
 };

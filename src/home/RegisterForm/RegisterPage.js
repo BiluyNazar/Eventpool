@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './RegisterPage.css';  // Ваш власний файл CSS
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ const RegisterPage = () => {
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -15,74 +17,74 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setErrors({}); // очищаємо помилки перед новим запитом
     try {
-      console.log('Відправляємо дані:', formData);
-      
       const res = await fetch('http://localhost:8888/eventpool_backend/register.php', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
-      console.log('Відповідь отримана:', res);
-      
       const data = await res.json();
-      console.log('Дані:', data);
-      
+
       if (data.success) {
         alert('Реєстрація успішна!');
         navigate('/login');
       } else {
-        alert(data.error || 'Помилка реєстрації!');
+        setErrors({ message: data.error || 'Помилка реєстрації!' });
       }
     } catch (err) {
-      console.error('Детальна помилка:', err);
-      alert('Помилка сервера!');
+      setErrors({ message: 'Помилка сервера!' });
     }
   };
 
   return (
-    <div className="register-page">
-      <h2>Реєстрація</h2>
-      <form onSubmit={handleSubmit} autoComplete="on">
-        <div>
-          <label htmlFor="name">Ім'я</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Електронна пошта</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Пароль</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit" className="btn-grad">Зареєструватися</button>
-      </form>
+    <div className="register-container">
+      <div className="register-form">
+        <h2>Реєстрація</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label htmlFor="name">Ім'я</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className={errors.message ? "error form-control" : "form-control"}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="email">Електронна пошта</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={errors.message ? "error form-control" : "form-control"}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password">Пароль</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className={errors.message ? "error form-control" : "form-control"}
+              required
+            />
+          </div>
+          {errors.message && <p className="error-message">{errors.message}</p>}
+          <button type="submit" className="btn-grad">Зареєструватися</button>
+        </form>
+      </div>
     </div>
   );
 };
