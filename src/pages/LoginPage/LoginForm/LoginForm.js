@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from '../../context/AuthContext';
-import './LoginPage.css'; // Додамо файл CSS для стилів
+import { useAuth } from '../../../context/AuthContext.js';
+import './LoginForm.css'; // Додамо файл CSS для стилів
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -32,7 +32,6 @@ const LoginPage = () => {
 
       if (data.success) {
         login(data.user);
-        alert('Вхід успішний!');
         navigate('/');
       } else {
         setErrors({ message: data.error || 'Логін чи пароль не вірний!' });

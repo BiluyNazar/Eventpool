@@ -1,0 +1,104 @@
+/* Загальний фон сторінки */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(145deg, #102913, #334D39);
+  }
+  
+  /* Стилі для форми входу */
+  .login-form {
+    background: linear-gradient(145deg, #1c3d1a, #334D39); /* Змінили градієнт */
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  /* Стилі для заголовка */
+  .login-form h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Поля вводу */
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #f0f0f0;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #71B280;
+    border-radius: 12px !important;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    border-color: #71B280;
+  }
+  
+  .input-group input.error {
+    border-color: #e74c3c;
+  }
+  
+  /* Кнопка тільки для сторінки входу */
+  .login-form .btn-grad {
+    background-image: linear-gradient(to right, #135e3f 0%, #71B280 51%, #135e3f 100%);
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%; /* Кнопка займає всю ширину інпуту */
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-position 0.5s;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .login-form .btn-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Повідомлення про помилку */
+  .error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 10px;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  /* Анімація для входу */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

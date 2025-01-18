@@ -1,0 +1,9 @@
+.event-hero-section {
+    height: 215px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.308);
+    background-image: url("../../../../../public/images/evenths.png");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+}

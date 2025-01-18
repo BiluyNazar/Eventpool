@@ -2,7 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import Logo from "./img/logo.png";
 import './header.css'
 import Image from 'react-bootstrap/Image';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {

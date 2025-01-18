@@ -1,0 +1,54 @@
+.event-participants {
+    display: flex;
+    flex-direction: column
+}
+
+
+.event-participants-title {
+    padding: 7px 12px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    background: #D2E5D1A6;
+    border-radius: 45px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    font-weight: 800;
+    color: #334D39;
+    text-align: center;
+}
+
+.event-participants-list {
+    margin-top: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+
+.event-participants-card {
+    width: 100%;
+    height: 106px;
+    background: #F9F9F7;
+    display: flex;
+    border-radius: 15px;
+    padding: 13px 12px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border: 1px solid #00000024;
+    gap: 24px;
+}
+
+.event-participants-pfp {
+    font-size: 54px;
+}
+
+.event-participants-role {
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #334D39;
+}
+
+.event-participants-name {
+    font-family: "Montserrat Alternates";
+}

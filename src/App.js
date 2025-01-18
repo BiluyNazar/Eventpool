@@ -1,18 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import Main from './home/main/main';
-import LoginPage from './home/LoginForm/LoginPage';
-import RegisterPage from './home/RegisterForm/RegisterPage';
-import CreateEventPage from './home/CreateEventPage';
+import Main from './pages/HomePage/components/Main/main';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import EventPage from './pages/EventPage/EventPage';
 import PrivateRoute from './components/PrivateRoute';
-import { Header } from './home/header/header';
 import './App.css';
 
 function App() {
   return (
     <AuthProvider>
       <div className="App">
-        <Header />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<LoginPage />} />
@@ -21,7 +19,7 @@ function App() {
             path="/create-event" 
             element={
               <PrivateRoute>
-                <CreateEventPage />
+                <EventPage />
               </PrivateRoute>
             } 
           />

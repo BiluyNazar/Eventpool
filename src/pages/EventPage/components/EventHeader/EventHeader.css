@@ -1,0 +1,69 @@
+.event-header {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 44px;
+    padding-left: 20px;
+    width: 100%;
+    border-bottom:1px solid #000;
+}
+
+.event-title h1 {
+    font-size: 64px;
+    font-weight: 800;
+    color: #334D39;
+}
+
+.event-title-btn-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.event-title-btn-approve, .event-title-btn-edit, .event-title-btn-delete {
+    height: 49px;
+    width: 49px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    transition: 0.36s;
+}
+
+.event-title-btn-approve i, .event-title-btn-edit i, .event-title-btn-delete i {
+    transition: 0.36s;
+}
+
+.event-title-btn-approve:hover, .event-title-btn-edit:hover, .event-title-btn-delete:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.event-title-btn-approve:hover i, .event-title-btn-edit:hover i, .event-title-btn-delete:hover i {
+    font-size: 19px;
+}
+
+.event-title-btn-approve {
+    background: #90C088;
+}
+.event-title-btn-edit {
+    background: #ffe081;
+}
+.event-title-btn-delete {
+    background: #FFD9D6 
+}
+
+.event-title-btn-approve:hover {
+    border: 1px solid #1a965c;
+}
+
+.event-title-btn-edit:hover {
+    border: 1px solid #fabb00;
+}
+
+.event-title-btn-delete:hover {
+    border: 1px solid #fe9991;
+}
+

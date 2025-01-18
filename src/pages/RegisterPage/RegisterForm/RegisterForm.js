@@ -1,6 +1,7 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './RegisterPage.css';  // Ваш власний файл CSS
+import './RegisterForm.css';  // Ваш власний файл CSS
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({

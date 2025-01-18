@@ -1,0 +1,66 @@
+.event-task-card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.event-task-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 4px 4px 4px 0px #00000040;
+    border: 1px solid #00000024;
+    border-radius: 35px;
+    width: 370px;
+    height: 372px;
+    background-color: #F9F9F7;
+}
+
+.event-task-card-header {
+    width: 100%;
+    background-color: #7CA27D;
+    border-radius: 35px 35px 0 0 ;
+    display: flex;
+    align-items: center;
+    padding: 19px 25px;
+    gap: 10px;
+}
+
+.event-task-card-title {
+    font-family: "Montserrat Alternates";
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.event-task-card-main {
+    padding: 15px 23px;
+}
+
+.event-task-card-executor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.event-task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+}
+
+
+.event-task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.event-task i {
+    border: 1px solid #7D7D7C;
+    padding: 4px;
+    border-radius: 50%;
+    color: #7D7D7C;
+}
